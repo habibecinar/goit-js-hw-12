@@ -11,7 +11,7 @@ global.SimpleLightbox = SimpleLightbox;
 
 // API anahtarı
 const API_KEY = '49383609-3f4a245e58475bbde73d484d3';
-const API_URL = 'https://pixabay.com/api/';
+
 
 // Lightbox değişkenini global tanımla
 let lightbox;
@@ -47,7 +47,7 @@ async function fetchImages(query) {
     console.log(`API'ye istek yapılıyor: ${query}`);
 
     const response = await fetch(
-      `${API_URL}?key=${API_KEY}&q=${encodeURIComponent(
+      `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
         query
       )}&image_type=photo&orientation=horizontal&safesearch=true&per_page=20`,
       { mode: 'cors' }

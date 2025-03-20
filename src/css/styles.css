@@ -1,18 +1,234 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  user-select: none;
+}
+.gallery-container {
+  width: 100%;
+  height: 100%;
+  padding: 36px 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 120px;
+}
+.gallery-container form {
+  display: flex;
+  gap: 8px;
+  padding-right: 100px;
+}
+.gallery-container input[type='text'] {
+  width: 272px;
+  height: 40px;
+  border: 1px solid rgba(108, 140, 255, 1);
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: black;
+}
+.gallery-container input[type='text']:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.gallery-container input[type='text']:focus {
+  outline: none;
+  border: 1px solid rgba(78, 117, 255, 1);
+  color: rgba(46, 47, 66, 1);
+}
+
+.gallery-container input[type='submit'] {
+  background: rgba(78, 117, 255, 1);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.gallery-container input[type='submit']:hover {
+  background: rgba(108, 140, 255, 1);
+}
+
+.searchBtn {
+  background: rgba(108, 140, 255, 1);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 4%;
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background: rgba(108, 140, 255, 1);
+}
+.gallery {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  list-style: none;
+}
+.gallery .gallery-item {
+  position: relative;
+  width: 360px;
+  height: 200px;
+  border: 1px solid rgba(128, 128, 128, 1);
+}
+.gallery .gallery-item .content {
+  position: absolute;
+  bottom: 0px;
+  background-color: white;
+  width: 100%;
+  height: 48px;
+  padding: 4px;
+  display: flex;
+  gap: 28px;
+}
+.gallery-item .content .info {
+  text-align: center;
+}
+.gallery-item .content .info .key {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 4%;
+}
+.gallery-item .content .info .value {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 4%;
+}
+#gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  
+  max-width: 9000px;
+  margin: 0 auto;
+}
+.image-card {
+  display: flex;
+  flex-direction: column; /* Dikey hizalama */
+  align-items: center;
+  width: 300px;
+  height: auto;
+
+  max-width: 350px; /* Fotoğrafın çok büyük olmaması için */
+  border: 1px solid black;
+  overflow: hidden;
+  background-color: #fff; /* Hafif gri arka plan */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+  padding-bottom: 10px;
+}
+.image-card img {
+  width: 100%; /* Fotoğraf containerı kaplasın */
+  height: 300px;
+  display: block; /* Kenarda boşluk kalmasın */
+  object-fit: cover;
+}
+.image-info {
+  display: flex;
+  justify-content: space-between; /* Yan yana hizala */
+  width: 100%;
+  background-color: white; /* Sadece bu alan beyaz olacak */
+  padding: 10px;
+}
+.image-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  font-weight: normal; /* Sayılar ince olacak */
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Simge ile sayı arasına boşluk */
+}
+.info-item {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  min-width: 50px;
+}
+.info-item p {
+  margin: 0%;
+  margin-top: 3px;
+  flex-direction: column;
+}
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #fff #fff transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #ff3d00 #ff3d00;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #fff #fff transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+
+.image-info strong {
+  font-weight: bold;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}

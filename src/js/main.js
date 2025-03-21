@@ -46,7 +46,7 @@ async function fetchImages(query) {
     console.log(`API'ye istek yapılıyor: ${query}`);
 
     const response = await fetch(
-      `/api/api/?key=${API_KEY}&q=${encodeURIComponent(
+      `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
         query
       )}&image_type=photo&orientation=horizontal&safesearch=true&per_page=20`,
       { mode: 'cors' }

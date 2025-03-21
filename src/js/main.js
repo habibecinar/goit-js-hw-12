@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // API'den görselleri al ve galeriyi güncelle
 async function fetchImages(query) {
   try {
-    console.log(`API'ye istek yapılıyor: ${query}`);
+     console.log(`API'ye istek yapılıyor: ${query}`);
     loader.style.display = 'block';
    
     const response = await fetch(

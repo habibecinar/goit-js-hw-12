@@ -14,7 +14,7 @@ const API_KEY = '49383609-3f4a245e58475bbde73d484d3';
 
 // Lightbox değişkenini global tanımla
 let lightbox;
-
+const loader = document.querySelector('.loader');
 // Sayfa yüklendiğinde çalıştır
 document.addEventListener('DOMContentLoaded', () => {
   // Formu seç ve submit olayını dinle
@@ -38,13 +38,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // API'den görselleri çek
     fetchImages(query);
   });
+  loader.style.display = 'none';
 });
 
 // API'den görselleri al ve galeriyi güncelle
 async function fetchImages(query) {
   try {
     console.log(`API'ye istek yapılıyor: ${query}`);
-
+    loader.style.display = 'block';
     const response = await fetch(
       `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
         query
@@ -120,5 +121,7 @@ async function fetchImages(query) {
       backgroundColor: '#FF6347',
       color: 'white',
     });
+  }finally{
+    loader.style.display = 'none';
   }
 }

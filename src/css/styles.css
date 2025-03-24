@@ -215,6 +215,30 @@ body {
   border-top-color: #85c1e9;
   border-bottom-color: #85c1e9;
 }
+.LoadMoreBtn {
+  width: 125px;
+  height: 40px;
+  top: 1236px;
+  left: 657px;
+  border-radius: 8px;
+  padding-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  gap: 10px;
+  background-color: rgba(78, 117, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 4%;
+  text-align: center;
+  display: none;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
 
 /* Döndürme Animasyonu */
 @keyframes spin {
